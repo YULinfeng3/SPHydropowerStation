@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SPUser.h"
 
 @interface SPAPI : NSObject
+
+@property (nonatomic,retain) SPUser* currentUser;
 
 + (instancetype)sharedInstance;
 

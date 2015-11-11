@@ -19,6 +19,7 @@
 		84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49541BF2EF1F001F71DD /* SPAPI.m */; };
 		84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */; };
 		84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495A1BF2F98C001F71DD /* CATMessageView.m */; };
+		84AA49601BF301F7001F71DD /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495F1BF301F7001F71DD /* SPUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		84AA49591BF2F98C001F71DD /* CATMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATMessageView.h; sourceTree = "<group>"; };
 		84AA495A1BF2F98C001F71DD /* CATMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATMessageView.m; sourceTree = "<group>"; };
 		84AA495C1BF2F9D9001F71DD /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
+		84AA495E1BF301F7001F71DD /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
+		84AA495F1BF301F7001F71DD /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		84AA49291BF2E3B5001F71DD /* SPHydropowerStation */ = {
 			isa = PBXGroup;
 			children = (
+				84AA495D1BF301EC001F71DD /* Model */,
 				84AA49521BF2EF11001F71DD /* API */,
 				84AA49511BF2EACD001F71DD /* resource */,
 				84AA494B1BF2E9C5001F71DD /* controller */,
@@ -143,6 +147,15 @@
 				84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		84AA495D1BF301EC001F71DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84AA495E1BF301F7001F71DD /* SPUser.h */,
+				84AA495F1BF301F7001F71DD /* SPUser.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		AB36D237E72B82EAD47ECD4B /* Frameworks */ = {
@@ -274,6 +287,7 @@
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
 				84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */,
+				84AA49601BF301F7001F71DD /* SPUser.m in Sources */,
 				84AA492C1BF2E3B5001F71DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

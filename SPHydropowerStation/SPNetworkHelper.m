@@ -7,6 +7,7 @@
 //
 
 #import "SPNetworkHelper.h"
+#import <AFNetworking.h>
 
 @implementation SPNetworkHelper
 
@@ -26,6 +27,78 @@
             NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
             succeed(str,0);
         }
+    }];
+}
+
++ (void)get2WithUrl:(NSString*)url
+            params:(NSDictionary*)params
+           succeed:(void (^)(id data,NSInteger count))succeed
+            failed:(void (^)(NSError* error))failed{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    [manager.requestSerializer setTimeoutInterval:30];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [manager.requestSerializer setValue:version forHTTPHeaderField:@"version"];
+    
+    NSDictionary *dict =@{@"format":@"xml"};
+    [manager GET:url parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSInteger code = [responseObject[@"code"] integerValue];
+        if (code == 200)
+        {
+            // 保存"Set-Cookie"
+            NSDictionary* header = operation.response.allHeaderFields;
+            NSString* cookie = header[@"Set-Cookie"];
+            if (cookie) {
+                [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"Cookie"];
+            }
+            
+            NSString* token = header[@"token"];
+            if (token) {
+                [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+            }
+            
+            id result = responseObject[@"result"];
+            if ([result isKindOfClass:[NSDictionary class]] ||
+                [result isKindOfClass:[NSArray class]])
+            {
+                if (responseObject[@"count"]) {
+                    succeed(result,[responseObject[@"count"] integerValue]);
+                }else{
+                    succeed(result,0);
+                }
+            }
+            else if ([result isKindOfClass:[NSString class]])
+            {
+                NSData *jsonData = [result dataUsingEncoding:NSUTF8StringEncoding];
+                id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+                succeed(object,[responseObject[@"count"] integerValue]);
+            }
+            else
+            {
+                succeed(responseObject,0);
+            }
+        }
+        else if (code == -100)
+        {
+            // 需要重新登录
+            NSArray* cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+            for (NSHTTPCookie *cookie in cookies)
+            {
+                [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"Cookie"];
+            failed(nil);
+        }
+        else
+        {
+            failed([NSError errorWithDomain:@"Catch" code:[responseObject[@"code"] integerValue] userInfo:responseObject]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //        [CATCommonHelper showMessage:NSLocalizedString(@"Network error", nil)];
+        
+        failed(error);
     }];
 }
 

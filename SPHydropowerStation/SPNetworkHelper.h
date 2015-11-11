@@ -15,4 +15,9 @@
            succeed:(void (^)(id data,NSInteger count))succeed
             failed:(void (^)(NSError* error))failed;
 
++ (void)get2WithUrl:(NSString*)url
+            params:(NSDictionary*)params
+           succeed:(void (^)(id data,NSInteger count))succeed
+            failed:(void (^)(NSError* error))failed;
+
 @end
