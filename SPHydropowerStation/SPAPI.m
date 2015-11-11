@@ -8,6 +8,7 @@
 
 #import "SPAPI.h"
 #import "SPNetworkHelper.h"
+#import "MacroDefinition.h"
 
 @implementation SPAPI
 
@@ -25,13 +26,21 @@
                  password:(NSString*)password
                   succeed:(void (^)())succeed
                    failed:(void (^)(NSError* error))failed{
-    [SPNetworkHelper getWithUrl:@"http://221.12.173.120/WisdomService/api/Values/CanAccountLogin?key=ecidi123456&account=akuanwo&pwd=123" params:nil succeed:^(id data, NSInteger count) {
-        if ([data isEqualToString:@"true"]) {
-            succeed();
-        }else{
-            failed(nil);
-        }
-    } failed:failed];
+    NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/CanAccountLogin?key=ecidi123456&account=%@&pwd=%@",username,password];
+    
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+            if ([data isEqualToString:@"true"]) {
+                succeed();
+            }else{
+                failed(nil);
+            }
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
 }
 
 @end

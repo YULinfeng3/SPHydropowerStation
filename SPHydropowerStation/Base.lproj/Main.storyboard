@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="passwordField" destination="qY2-2y-Jck" id="8fo-Kc-YKr"/>
                         <outlet property="usernameField" destination="w3p-t0-l5m" id="edT-4P-tDw"/>
+                        <segue destination="aCZ-Zi-mfg" kind="show" identifier="SPProjListViewController" id="Gf7-6g-lU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -153,11 +154,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2rc-Ah-CwU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aq-LD-ymP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="399"/>
+            <point key="canvasLocation" x="1326" y="555"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="rFv-VG-Fr6">

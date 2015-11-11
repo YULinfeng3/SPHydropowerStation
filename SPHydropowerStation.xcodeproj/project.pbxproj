@@ -18,6 +18,7 @@
 		84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49481BF2E86F001F71DD /* SPMenuViewController.m */; };
 		84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49541BF2EF1F001F71DD /* SPAPI.m */; };
 		84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */; };
+		84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495A1BF2F98C001F71DD /* CATMessageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,9 @@
 		84AA49541BF2EF1F001F71DD /* SPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAPI.m; sourceTree = "<group>"; };
 		84AA49561BF2EF65001F71DD /* SPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkHelper.h; sourceTree = "<group>"; };
 		84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNetworkHelper.m; sourceTree = "<group>"; };
+		84AA49591BF2F98C001F71DD /* CATMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATMessageView.h; sourceTree = "<group>"; };
+		84AA495A1BF2F98C001F71DD /* CATMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATMessageView.m; sourceTree = "<group>"; };
+		84AA495C1BF2F9D9001F71DD /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		84AA494A1BF2E9BE001F71DD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				84AA49591BF2F98C001F71DD /* CATMessageView.h */,
+				84AA495A1BF2F98C001F71DD /* CATMessageView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 		84AA49521BF2EF11001F71DD /* API */ = {
 			isa = PBXGroup;
 			children = (
+				84AA495C1BF2F9D9001F71DD /* MacroDefinition.h */,
 				84AA49531BF2EF1F001F71DD /* SPAPI.h */,
 				84AA49541BF2EF1F001F71DD /* SPAPI.m */,
 				84AA49561BF2EF65001F71DD /* SPNetworkHelper.h */,
@@ -263,6 +270,7 @@
 				84AA49431BF2E762001F71DD /* SPLoginViewController.m in Sources */,
 				84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */,
 				84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */,
+				84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */,
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
 				84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */,

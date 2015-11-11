@@ -8,6 +8,9 @@
 
 #import "SPLoginViewController.h"
 #import "SPAPI.h"
+#import "MBProgressHUD.h"
+#import "CATMessageView.h"
+#import "MacroDefinition.h"
 
 @interface SPLoginViewController ()
 
@@ -43,11 +46,14 @@
 - (IBAction)onLogin:(id)sender {
     NSString* username = self.usernameField.text;
     NSString* password = self.passwordField.text;
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    WS(weakSelf);
     [[SPAPI sharedInstance] loginWithUsername:username password:password succeed:^{
-        NSLog(@"登陆成功");
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [weakSelf performSegueWithIdentifier:@"SPProjListViewController" sender:nil];
     } failed:^(NSError *error) {
-        NSLog(@"登陆失败");
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [CATMessageView showWithMessage:@"登录失败"];
     }];
 }
 
