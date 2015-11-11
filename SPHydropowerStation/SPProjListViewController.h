@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SPProjListViewController.h
 //  SPHydropowerStation
 //
 //  Created by 余林峰 on 15/11/11.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SPProjListViewController : UIViewController
 
 @end
-

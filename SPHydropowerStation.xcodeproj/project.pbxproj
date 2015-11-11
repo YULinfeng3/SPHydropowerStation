@@ -10,26 +10,38 @@
 		2EAEC07F76D0E6654C72286A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */; };
 		84AA492C1BF2E3B5001F71DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492B1BF2E3B5001F71DD /* main.m */; };
 		84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492E1BF2E3B5001F71DD /* AppDelegate.m */; };
-		84AA49321BF2E3B5001F71DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49311BF2E3B5001F71DD /* ViewController.m */; };
 		84AA49351BF2E3B5001F71DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AA49331BF2E3B5001F71DD /* Main.storyboard */; };
 		84AA49371BF2E3B5001F71DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84AA49361BF2E3B5001F71DD /* Assets.xcassets */; };
 		84AA493A1BF2E3B5001F71DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AA49381BF2E3B5001F71DD /* LaunchScreen.storyboard */; };
+		84AA49431BF2E762001F71DD /* SPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49421BF2E762001F71DD /* SPLoginViewController.m */; };
+		84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49451BF2E861001F71DD /* SPProjListViewController.m */; };
+		84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49481BF2E86F001F71DD /* SPMenuViewController.m */; };
+		84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49541BF2EF1F001F71DD /* SPAPI.m */; };
+		84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		41D547107D1D30004A04FEA8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		674415E92ED2B76F01911F67 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		84AA49271BF2E3B5001F71DD /* SPHydropowerStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPHydropowerStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AA49271BF2E3B5001F71DD /* 沙坪二级水电站智慧工程平台.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "沙坪二级水电站智慧工程平台.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AA492B1BF2E3B5001F71DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84AA492D1BF2E3B5001F71DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84AA492E1BF2E3B5001F71DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84AA49301BF2E3B5001F71DD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84AA49311BF2E3B5001F71DD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84AA49341BF2E3B5001F71DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84AA49361BF2E3B5001F71DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84AA49391BF2E3B5001F71DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84AA493B1BF2E3B5001F71DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84AA49411BF2E762001F71DD /* SPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoginViewController.h; sourceTree = "<group>"; };
+		84AA49421BF2E762001F71DD /* SPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginViewController.m; sourceTree = "<group>"; };
+		84AA49441BF2E861001F71DD /* SPProjListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProjListViewController.h; sourceTree = "<group>"; };
+		84AA49451BF2E861001F71DD /* SPProjListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProjListViewController.m; sourceTree = "<group>"; };
+		84AA49471BF2E86F001F71DD /* SPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuViewController.h; sourceTree = "<group>"; };
+		84AA49481BF2E86F001F71DD /* SPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMenuViewController.m; sourceTree = "<group>"; };
+		84AA49531BF2EF1F001F71DD /* SPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAPI.h; sourceTree = "<group>"; };
+		84AA49541BF2EF1F001F71DD /* SPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAPI.m; sourceTree = "<group>"; };
+		84AA49561BF2EF65001F71DD /* SPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkHelper.h; sourceTree = "<group>"; };
+		84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNetworkHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +69,7 @@
 		84AA49281BF2E3B5001F71DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84AA49271BF2E3B5001F71DD /* SPHydropowerStation.app */,
+				84AA49271BF2E3B5001F71DD /* 沙坪二级水电站智慧工程平台.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,10 +77,12 @@
 		84AA49291BF2E3B5001F71DD /* SPHydropowerStation */ = {
 			isa = PBXGroup;
 			children = (
+				84AA49521BF2EF11001F71DD /* API */,
+				84AA49511BF2EACD001F71DD /* resource */,
+				84AA494B1BF2E9C5001F71DD /* controller */,
+				84AA494A1BF2E9BE001F71DD /* view */,
 				84AA492D1BF2E3B5001F71DD /* AppDelegate.h */,
 				84AA492E1BF2E3B5001F71DD /* AppDelegate.m */,
-				84AA49301BF2E3B5001F71DD /* ViewController.h */,
-				84AA49311BF2E3B5001F71DD /* ViewController.m */,
 				84AA49331BF2E3B5001F71DD /* Main.storyboard */,
 				84AA49361BF2E3B5001F71DD /* Assets.xcassets */,
 				84AA49381BF2E3B5001F71DD /* LaunchScreen.storyboard */,
@@ -84,6 +98,44 @@
 				84AA492B1BF2E3B5001F71DD /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84AA494A1BF2E9BE001F71DD /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		84AA494B1BF2E9C5001F71DD /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84AA49411BF2E762001F71DD /* SPLoginViewController.h */,
+				84AA49421BF2E762001F71DD /* SPLoginViewController.m */,
+				84AA49441BF2E861001F71DD /* SPProjListViewController.h */,
+				84AA49451BF2E861001F71DD /* SPProjListViewController.m */,
+				84AA49471BF2E86F001F71DD /* SPMenuViewController.h */,
+				84AA49481BF2E86F001F71DD /* SPMenuViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		84AA49511BF2EACD001F71DD /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = resource;
+			sourceTree = "<group>";
+		};
+		84AA49521BF2EF11001F71DD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84AA49531BF2EF1F001F71DD /* SPAPI.h */,
+				84AA49541BF2EF1F001F71DD /* SPAPI.m */,
+				84AA49561BF2EF65001F71DD /* SPNetworkHelper.h */,
+				84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		AB36D237E72B82EAD47ECD4B /* Frameworks */ = {
@@ -122,7 +174,7 @@
 			);
 			name = SPHydropowerStation;
 			productName = SPHydropowerStation;
-			productReference = 84AA49271BF2E3B5001F71DD /* SPHydropowerStation.app */;
+			productReference = 84AA49271BF2E3B5001F71DD /* 沙坪二级水电站智慧工程平台.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,8 +260,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AA49321BF2E3B5001F71DD /* ViewController.m in Sources */,
+				84AA49431BF2E762001F71DD /* SPLoginViewController.m in Sources */,
 				84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */,
+				84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */,
+				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
+				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
+				84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */,
 				84AA492C1BF2E3B5001F71DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +384,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SP.SPHydropowerStation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "沙坪二级水电站智慧工程平台";
 			};
 			name = Debug;
 		};
@@ -342,7 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SP.SPHydropowerStation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "沙坪二级水电站智慧工程平台";
 			};
 			name = Release;
 		};
