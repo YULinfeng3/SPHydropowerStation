@@ -15,6 +15,9 @@
     
     model.ProjID = json[@"ProjID"];
     model.ProjName = json[@"ProjName"];
+    model.ProjType = json[@"ProjType"];
+    model.District = json[@"District"];
+    model.Introduction = json[@"Introduction"];
     
     return model;
 }

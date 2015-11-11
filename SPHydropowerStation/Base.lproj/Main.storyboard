@@ -151,11 +151,27 @@
                     <view key="view" contentMode="scaleToFill" id="VU2-wm-Fag">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fW2-xQ-cti">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fW2-xQ-cti" secondAttribute="trailing" id="Exe-MR-f9E"/>
+                            <constraint firstItem="fW2-xQ-cti" firstAttribute="top" secondItem="VU2-wm-Fag" secondAttribute="top" id="FY5-qu-cHX"/>
+                            <constraint firstItem="fW2-xQ-cti" firstAttribute="leading" secondItem="VU2-wm-Fag" secondAttribute="leading" id="cyp-ZS-VGd"/>
+                            <constraint firstAttribute="bottom" secondItem="fW2-xQ-cti" secondAttribute="bottom" id="znQ-XN-fow"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2rc-Ah-CwU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="tableView" destination="fW2-xQ-cti" id="lHt-TZ-mzn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aq-LD-ymP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

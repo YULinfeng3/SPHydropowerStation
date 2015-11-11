@@ -8,8 +8,13 @@
 
 #import "SPProjListViewController.h"
 #import "SPAPI.h"
+#import "SPProjCell.h"
+#import "CATMessageView.h"
 
-@interface SPProjListViewController ()
+@interface SPProjListViewController () <UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,retain) NSArray* projList;
 
 @end
 
@@ -20,6 +25,7 @@
     // Do any additional setup after loading the view.
     
     [self loadData];
+    [self loadTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,10 +45,28 @@
 
 - (void)loadData{
     [[SPAPI sharedInstance] projListWithSucceed:^(NSArray *projList) {
-        
+        self.projList = projList;
     } failed:^(NSError *error) {
-        
+        [CATMessageView showWithMessage:@"获取项目失败"];
     }];
 }
+
+- (void)loadTableView{
+    [self.tableView registerNib:[UINib nibWithNibName:@"SPProjCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SPProjCell"];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.projList.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SPProjCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SPProjCell"];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
 
 @end

@@ -21,6 +21,8 @@
 		84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495A1BF2F98C001F71DD /* CATMessageView.m */; };
 		84AA49601BF301F7001F71DD /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495F1BF301F7001F71DD /* SPUser.m */; };
 		84AA49631BF306FE001F71DD /* SPProj.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49621BF306FE001F71DD /* SPProj.m */; };
+		84AA49671BF30BA2001F71DD /* SPProjCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49651BF30BA2001F71DD /* SPProjCell.m */; };
+		84AA49681BF30BA2001F71DD /* SPProjCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AA49661BF30BA2001F71DD /* SPProjCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		84AA495F1BF301F7001F71DD /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
 		84AA49611BF306FE001F71DD /* SPProj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProj.h; sourceTree = "<group>"; };
 		84AA49621BF306FE001F71DD /* SPProj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProj.m; sourceTree = "<group>"; };
+		84AA49641BF30BA2001F71DD /* SPProjCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProjCell.h; sourceTree = "<group>"; };
+		84AA49651BF30BA2001F71DD /* SPProjCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProjCell.m; sourceTree = "<group>"; };
+		84AA49661BF30BA2001F71DD /* SPProjCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPProjCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +121,9 @@
 			children = (
 				84AA49591BF2F98C001F71DD /* CATMessageView.h */,
 				84AA495A1BF2F98C001F71DD /* CATMessageView.m */,
+				84AA49641BF30BA2001F71DD /* SPProjCell.h */,
+				84AA49651BF30BA2001F71DD /* SPProjCell.m */,
+				84AA49661BF30BA2001F71DD /* SPProjCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84AA493A1BF2E3B5001F71DD /* LaunchScreen.storyboard in Resources */,
+				84AA49681BF30BA2001F71DD /* SPProjCell.xib in Resources */,
 				84AA49371BF2E3B5001F71DD /* Assets.xcassets in Resources */,
 				84AA49351BF2E3B5001F71DD /* Main.storyboard in Resources */,
 			);
@@ -292,6 +301,7 @@
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
 				84AA49631BF306FE001F71DD /* SPProj.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
+				84AA49671BF30BA2001F71DD /* SPProjCell.m in Sources */,
 				84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */,
 				84AA49601BF301F7001F71DD /* SPUser.m in Sources */,
 				84AA492C1BF2E3B5001F71DD /* main.m in Sources */,
