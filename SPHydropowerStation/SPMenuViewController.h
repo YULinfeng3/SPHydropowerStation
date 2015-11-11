@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPProj.h"
 
 @interface SPMenuViewController : UIViewController
+
+@property (nonatomic,retain) SPProj* proj;
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPProj.h"
 
 @interface SPProjCell : UITableViewCell
+
+- (void)bindData:(SPProj*)proj;
 
 @end
