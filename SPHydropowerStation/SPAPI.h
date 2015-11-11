@@ -20,4 +20,7 @@
                   succeed:(void (^)())succeed
                    failed:(void (^)(NSError* error))failed;
 
+- (void)projListWithSucceed:(void (^)(NSArray* projList))succeed
+                     failed:(void (^)(NSError* error))failed;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SPProjListViewController.h"
+#import "SPAPI.h"
 
 @interface SPProjListViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +36,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)loadData{
+    [[SPAPI sharedInstance] projListWithSucceed:^(NSArray *projList) {
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
 
 @end

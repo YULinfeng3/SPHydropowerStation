@@ -20,6 +20,7 @@
 		84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49571BF2EF65001F71DD /* SPNetworkHelper.m */; };
 		84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495A1BF2F98C001F71DD /* CATMessageView.m */; };
 		84AA49601BF301F7001F71DD /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA495F1BF301F7001F71DD /* SPUser.m */; };
+		84AA49631BF306FE001F71DD /* SPProj.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA49621BF306FE001F71DD /* SPProj.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		84AA495C1BF2F9D9001F71DD /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		84AA495E1BF301F7001F71DD /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
 		84AA495F1BF301F7001F71DD /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
+		84AA49611BF306FE001F71DD /* SPProj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProj.h; sourceTree = "<group>"; };
+		84AA49621BF306FE001F71DD /* SPProj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProj.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 			children = (
 				84AA495E1BF301F7001F71DD /* SPUser.h */,
 				84AA495F1BF301F7001F71DD /* SPUser.m */,
+				84AA49611BF306FE001F71DD /* SPProj.h */,
+				84AA49621BF306FE001F71DD /* SPProj.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */,
 				84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */,
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
+				84AA49631BF306FE001F71DD /* SPProj.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
 				84AA49581BF2EF65001F71DD /* SPNetworkHelper.m in Sources */,
 				84AA49601BF301F7001F71DD /* SPUser.m in Sources */,

@@ -10,6 +10,7 @@
 #import "SPNetworkHelper.h"
 #import "MacroDefinition.h"
 #import "SPUser.h"
+#import "SPProj.h"
 
 @implementation SPAPI
 
@@ -61,6 +62,29 @@
         MAIN(^{
             NSString* userID = [data stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             succeed(userID);
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
+}
+
+- (void)projListWithSucceed:(void (^)(NSArray* projList))succeed
+                     failed:(void (^)(NSError* error))failed{
+    NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/GetUserProjs?key=ecidi123456&userID=%@",[SPAPI sharedInstance].currentUser.userID];
+
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+            NSString* str = data;
+            NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            NSMutableArray* projList = [NSMutableArray array];
+            for (NSDictionary* item in array) {
+                SPProj* model = [SPProj projWithJSON:item];
+                [projList addObject:model];
+            }
+            succeed(projList);
         });
     } failed:^(NSError *error) {
         MAIN(^{
