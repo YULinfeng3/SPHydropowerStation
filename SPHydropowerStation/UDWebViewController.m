@@ -40,7 +40,6 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoginComplete) name:@"WelcomeDismiss" object:nil];
 }
@@ -51,7 +50,6 @@
     [_indicatorView removeFromSuperview];
     [_webView stopLoading];
     
-    [self.navigationController setNavigationBarHidden:NO];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"WelcomeDismiss" object:nil];
 }

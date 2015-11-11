@@ -55,6 +55,8 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self loadRequest:request];
     self.delegate = self;
+    
+    self.scalesPageToFit = YES;
 }
 
 - (void)loadRequest:(NSURLRequest *)request

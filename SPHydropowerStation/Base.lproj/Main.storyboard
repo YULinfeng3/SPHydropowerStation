@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="log" translatesAutoresizingMaskIntoConstraints="NO" id="9zV-lB-0Qw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="log" translatesAutoresizingMaskIntoConstraints="NO" id="9zV-lB-0Qw">
                                 <rect key="frame" x="309" y="170" width="150" height="150"/>
                                 <animations/>
                                 <constraints>
@@ -29,14 +29,14 @@
                                     <constraint firstAttribute="height" constant="150" id="xRU-tb-wWo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="沙坪二级水电站智慧工程平台" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h53-p0-0O8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沙坪二级水电站智慧工程平台" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h53-p0-0O8">
                                 <rect key="frame" x="202" y="381" width="364" height="33.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.12156862745098039" green="0.72549019607843135" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cVs-y8-dye">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVs-y8-dye">
                                 <rect key="frame" x="0.0" y="487" width="768" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsw-JD-kdG">
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="84" y="0.0" width="664" height="63.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
                                 <animations/>
@@ -95,7 +95,7 @@
                                     <constraint firstItem="Q7d-nX-KUE" firstAttribute="leading" secondItem="cVs-y8-dye" secondAttribute="leading" constant="30" id="zbm-p8-1xA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-mR-4de">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-mR-4de">
                                 <rect key="frame" x="40" y="673" width="688" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.72549019609999998" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,6 +130,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ang-2d-KnM"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="passwordField" destination="qY2-2y-Jck" id="8fo-Kc-YKr"/>
@@ -196,6 +197,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2rc-Ah-CwU"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="tableView" destination="fW2-xQ-cti" id="lHt-TZ-mzn"/>
@@ -310,6 +312,7 @@
                             <constraint firstAttribute="trailing" secondItem="sYn-mY-SYd" secondAttribute="trailing" id="s61-lp-fcP"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="collectionView" destination="Be8-6e-XZB" id="Q9f-6H-d58"/>
