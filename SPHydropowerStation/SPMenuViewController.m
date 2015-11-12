@@ -92,7 +92,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UDWebViewController *vc = [[UDWebViewController alloc] init];
     
-    NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     vc.url = url;
     [self.navigationController pushViewController:vc animated:YES];
 }
