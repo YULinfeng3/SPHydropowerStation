@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,retain) NSArray* data;
+@property (weak, nonatomic) IBOutlet UILabel *projTitleLabel;
 
 @end
 
@@ -47,6 +48,8 @@
                   @{@"title":@"混凝土监控",@"icon":@"8"},
                   @{@"title":@"视频管理",@"icon":@"9"},
                   @{@"title":@"系统管理",@"icon":@"10"}];
+    
+    self.projTitleLabel.text = self.proj.ProjName;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +82,7 @@
     
     NSDictionary* d = [self.data objectAtIndex:indexPath.row];
     cell.titleLabel.text = d[@"title"];
+    cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d[@"icon"]]];
     
     return cell;
 }
@@ -95,6 +99,10 @@
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     vc.url = url;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
