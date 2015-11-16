@@ -7,6 +7,7 @@
 //
 
 #import "SPProjCell.h"
+#import "MacroDefinition.h"
 
 @interface SPProjCell ()
 
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *districtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *introductionLabel;
+@property (weak, nonatomic) IBOutlet UIView *bkView;
 
 @end
 
@@ -21,6 +23,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.bkView.layer.borderWidth = 1;
+    self.bkView.layer.borderColor = RGBACOLOR(211, 211, 211, 1).CGColor;
+    self.bkView.layer.cornerRadius = 5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -47,22 +47,11 @@
     }
 }
 
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeLeft;
-}
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscape;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoginComplete) name:@"WelcomeDismiss" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

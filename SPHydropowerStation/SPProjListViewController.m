@@ -64,7 +64,9 @@
         view.backgroundColor = [UIColor clearColor];
         view;
     });
-    
+    self.tableView.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"SPProjCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SPProjCell"];
 }
 
