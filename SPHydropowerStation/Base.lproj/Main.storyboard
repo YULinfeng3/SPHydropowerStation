@@ -103,7 +103,7 @@
                                     <constraint firstAttribute="height" constant="64" id="8cg-fX-jNh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="登 陆">
+                                <state key="normal" title="登 录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -340,7 +340,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lpQ-dt-pJU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GJl-0e-B42" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GJl-0e-B42" customClass="SPNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gxq-Kg-1I0">

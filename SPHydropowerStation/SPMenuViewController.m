@@ -47,7 +47,9 @@
                   @{@"title":@"指标分析",@"icon":@"7"},
                   @{@"title":@"混凝土监控",@"icon":@"8"},
                   @{@"title":@"视频管理",@"icon":@"9"},
-                  @{@"title":@"系统管理",@"icon":@"10"}];
+                  @{@"title":@"系统管理",@"icon":@"10"},
+                  @{@"title":@"NONE",@"icon":@"NONE"},
+                  @{@"title":@"NONE",@"icon":@"NONE"}];
     
     self.projTitleLabel.text = self.proj.ProjName;
 }
@@ -84,6 +86,11 @@
     cell.titleLabel.text = d[@"title"];
     cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d[@"icon"]]];
     
+    if (indexPath.row == 10 || indexPath.row == 11) {
+        cell.titleLabel.text = @"";
+        cell.coverImageView.image = nil;
+    }
+    
     return cell;
 }
 
@@ -94,6 +101,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 10 || indexPath.row == 11) {
+        return;
+    }
+    
     UDWebViewController *vc = [[UDWebViewController alloc] init];
     
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];

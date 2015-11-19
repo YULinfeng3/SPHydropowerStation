@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EAEC07F76D0E6654C72286A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */; };
+		844AA1811BFD70AB00604523 /* SPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AA1801BFD70AB00604523 /* SPNavigationController.m */; };
 		84AA492C1BF2E3B5001F71DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492B1BF2E3B5001F71DD /* main.m */; };
 		84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492E1BF2E3B5001F71DD /* AppDelegate.m */; };
 		84AA49351BF2E3B5001F71DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AA49331BF2E3B5001F71DD /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 		41D547107D1D30004A04FEA8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		674415E92ED2B76F01911F67 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		844AA17F1BFD70AB00604523 /* SPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNavigationController.h; sourceTree = "<group>"; };
+		844AA1801BFD70AB00604523 /* SPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNavigationController.m; sourceTree = "<group>"; };
 		84AA49271BF2E3B5001F71DD /* 沙坪二级水电站智慧工程平台.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "沙坪二级水电站智慧工程平台.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AA492B1BF2E3B5001F71DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84AA492D1BF2E3B5001F71DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				84AA49451BF2E861001F71DD /* SPProjListViewController.m */,
 				84AA49471BF2E86F001F71DD /* SPMenuViewController.h */,
 				84AA49481BF2E86F001F71DD /* SPMenuViewController.m */,
+				844AA17F1BFD70AB00604523 /* SPNavigationController.h */,
+				844AA1801BFD70AB00604523 /* SPNavigationController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -231,7 +236,7 @@
 				TargetAttributes = {
 					84AA49261BF2E3B5001F71DD = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = FQ2E73E3RR;
+						DevelopmentTeam = LMZ2TZ6B6K;
 					};
 				};
 			};
@@ -311,6 +316,7 @@
 				84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */,
 				84AA496D1BF3148B001F71DD /* UDWebView.m in Sources */,
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
+				844AA1811BFD70AB00604523 /* SPNavigationController.m in Sources */,
 				84AA49631BF306FE001F71DD /* SPProj.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
 				84AA496E1BF3148B001F71DD /* UDWebViewController.m in Sources */,

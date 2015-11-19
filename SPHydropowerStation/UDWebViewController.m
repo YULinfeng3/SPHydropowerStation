@@ -47,7 +47,20 @@
     }
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+}
 
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -97,7 +110,7 @@
 
     self.webView.backgroundColor = [UIColor whiteColor];
     
-    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 70, 50, 50)];
+    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 40, 50, 50)];
     [self.backButton setImage:[UIImage imageNamed:@"toolbar_back"] forState:UIControlStateNormal];
     [self.backButton addTarget:self action:@selector(onBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
