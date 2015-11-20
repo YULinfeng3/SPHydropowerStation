@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
 
 @end
 
@@ -24,6 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,19 +42,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
--(BOOL)shouldAutorotate
+#pragma mark - keyboard noti
+
+- (void)keyboardWillShow:(NSNotification *)Notification
 {
-    return NO;
+    WS(weakSelf);
+    static CGFloat lastHeight;
+    NSDictionary *userInfo = [Notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    CGFloat height = keyboardRect.size.height;
+
+    self.top.constant = -120;
+    [UIView animateWithDuration:0.2 delay:0. options:UIViewAnimationOptionCurveLinear animations:^{
+        [weakSelf.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+    }];
 }
 
--(NSUInteger)supportedInterfaceOrientations
+- (void)keyboardWillHide:(NSNotification *)Notification
 {
-    return UIInterfaceOrientationMaskPortrait;
+    WS(weakSelf);
+    self.top.constant = 30;
+    [UIView animateWithDuration:0.2 delay:0. options:UIViewAnimationOptionCurveLinear animations:^{
+        
+        [weakSelf.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 /*
