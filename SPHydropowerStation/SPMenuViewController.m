@@ -38,18 +38,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.data = @[@{@"title":@"综合展示",@"icon":@"1"},
-                  @{@"title":@"过程管理",@"icon":@"2"},
-                  @{@"title":@"进度管理",@"icon":@"3"},
-                  @{@"title":@"安全监测",@"icon":@"4"},
-                  @{@"title":@"安全巡查",@"icon":@"5"},
-                  @{@"title":@"资源监控",@"icon":@"6"},
-                  @{@"title":@"指标分析",@"icon":@"7"},
-                  @{@"title":@"混凝土监控",@"icon":@"8"},
-                  @{@"title":@"视频管理",@"icon":@"9"},
-                  @{@"title":@"系统管理",@"icon":@"10"},
-                  @{@"title":@"NONE",@"icon":@"NONE"},
-                  @{@"title":@"NONE",@"icon":@"NONE"}];
+//    self.data = @[@{@"title":@"综合展示",@"icon":@"1"},
+//                  @{@"title":@"过程管理",@"icon":@"2"},
+//                  @{@"title":@"进度管理",@"icon":@"3"},
+//                  @{@"title":@"安全监测",@"icon":@"4"},
+//                  @{@"title":@"安全巡查",@"icon":@"5"},
+//                  @{@"title":@"资源监控",@"icon":@"6"},
+//                  @{@"title":@"指标分析",@"icon":@"7"},
+//                  @{@"title":@"混凝土监控",@"icon":@"8"},
+//                  @{@"title":@"视频管理",@"icon":@"9"},
+//                  @{@"title":@"系统管理",@"icon":@"10"},
+//                  @{@"title":@"NONE",@"icon":@"NONE"},
+//                  @{@"title":@"NONE",@"icon":@"NONE"}];
+    self.data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
+                  @{@"title":@"电站3D",@"icon":@"2"},
+                  @{@"title":@"项目监控",@"icon":@"1"},
+                  @{@"title":@"资源监控",@"icon":@"5"},
+                  @{@"title":@"混凝土监控",@"icon":@"6"},
+                  @{@"title":@"碾压监控",@"icon":@"4"},
+                  @{@"title":@"验收管理",@"icon":@"10"},
+                  @{@"title":@"视频监控",@"icon":@"7"},
+                  @{@"title":@"现场巡检",@"icon":@"8"},
+                  @{@"title":@"安全监测",@"icon":@"9"},
+                  @{@"title":@"档案管理",@"icon":@"dagl"},
+                  @{@"title":@"施工面貌",@"icon":@"sgmm"}];
     
     self.projTitleLabel.text = self.proj.ProjName;
 }
@@ -86,10 +98,6 @@
     cell.titleLabel.text = d[@"title"];
     cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d[@"icon"]]];
     
-    if (indexPath.row == 10 || indexPath.row == 11) {
-        cell.titleLabel.text = @"";
-        cell.coverImageView.image = nil;
-    }
     
     return cell;
 }
@@ -97,11 +105,12 @@
 #pragma mark - UICollectionViewDelegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(((NSInteger)SCREEN_WIDTH - 6) / 4, ((NSInteger)SCREEN_WIDTH - 6) / 4);
+    return CGSizeMake(((NSInteger)SCREEN_WIDTH - 10) / 4, ((NSInteger)SCREEN_WIDTH - 10) / 4);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 10 || indexPath.row == 11) {
+    if (indexPath.row == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
         return;
     }
     
