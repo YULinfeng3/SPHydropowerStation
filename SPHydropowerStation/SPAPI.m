@@ -38,10 +38,40 @@
                 [SPAPI sharedInstance].currentUser.account = username;
                 [weakSelf userIdWithAccount:username succeed:^(NSString *userID) {
                     [SPAPI sharedInstance].currentUser.userID = userID;
-                    succeed();
+                    
+                    [weakSelf defaultProjWithUserId:userID succeed:^(NSDictionary* data){
+                        if ([userID isEqualToString:data[@"UserID"]]) {
+                            [SPAPI sharedInstance].currentUser.defaultProj = [SPProj projWithJSON:data];
+                        }
+                        succeed();
+                    } failed:^(NSError *error) {
+                        failed(nil);
+                    }];
                 } failed:^(NSError *error) {
                     failed(error);
                 }];
+            }else{
+                failed(nil);
+            }
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
+}
+
+- (void)defaultProjWithUserId:(NSString*)userId
+                       succeed:(void (^)(NSDictionary* data))succeed
+                        failed:(void (^)(NSError* error))failed{
+    NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/Get_DefUser?key=ecidi123456&userID=%@",userId];
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+            NSString* str = data;
+            NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            if (array.count > 0) {
+                succeed(array[0]);
             }else{
                 failed(nil);
             }
@@ -73,7 +103,7 @@
 - (void)projListWithSucceed:(void (^)(NSArray* projList))succeed
                      failed:(void (^)(NSError* error))failed{
     NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/GetUserProjs?key=ecidi123456&userID=%@",[SPAPI sharedInstance].currentUser.userID];
-
+    
     [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
         MAIN(^{
             NSString* str = data;

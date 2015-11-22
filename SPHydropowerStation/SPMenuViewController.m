@@ -117,6 +117,14 @@
     UDWebViewController *vc = [[UDWebViewController alloc] init];
     
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    
+    if (indexPath.row == 4) {
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=huanningtujiankong",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }else if (indexPath.row == 7){
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }
+    
+    
     vc.url = url;
     [self.navigationController pushViewController:vc animated:YES];
 }

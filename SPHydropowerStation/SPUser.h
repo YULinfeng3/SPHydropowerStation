@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SPProj.h"
 
 @interface SPUser : NSObject
 
 @property (nonatomic,copy) NSString* account;
 @property (nonatomic,copy) NSString* userID;
+
+@property (nonatomic,retain) SPProj* defaultProj;
 
 @end

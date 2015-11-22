@@ -19,6 +19,11 @@
     model.District = json[@"District"];
     model.Introduction = json[@"Introduction"];
     
+    if (json[@"LoginProj"]) {
+        model.ProjID = json[@"LoginProj"];
+        model.ProjName = json[@"LoginProj"];
+    }
+    
     return model;
 }
 

@@ -28,16 +28,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self loadTableView];
-    [self loadData];
-
+        [self loadTableView];
+        [self loadData];
+    
+    if (self.proj) {
+        [self performSegueWithIdentifier:@"SPMenuViewController" sender:self.proj];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Navigation
 

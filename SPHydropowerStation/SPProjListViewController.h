@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SPProj.h"
+
 @interface SPProjListViewController : UIViewController
+
+@property (nonatomic,retain) SPProj* proj;
 
 @end

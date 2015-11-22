@@ -148,7 +148,7 @@
         <!--Proj List View Controller-->
         <scene sceneID="YO3-oQ-PSJ">
             <objects>
-                <viewController id="aCZ-Zi-mfg" customClass="SPProjListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPProjListViewController" id="aCZ-Zi-mfg" customClass="SPProjListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XIG-DD-Dyk"/>
                         <viewControllerLayoutGuide type="bottom" id="a0Q-BA-L6O"/>
@@ -209,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aq-LD-ymP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2138" y="555"/>
+            <point key="canvasLocation" x="2506" y="543"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="rFv-VG-Fr6">
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGv-KR-7Ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3116" y="555"/>
+            <point key="canvasLocation" x="3584" y="535"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lpQ-dt-pJU">

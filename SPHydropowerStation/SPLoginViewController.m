@@ -11,6 +11,8 @@
 #import "MBProgressHUD.h"
 #import "CATMessageView.h"
 #import "MacroDefinition.h"
+#import "SPMenuViewController.h"
+#import "SPProjListViewController.h"
 
 @interface SPLoginViewController ()
 
@@ -96,7 +98,17 @@
     WS(weakSelf);
     [[SPAPI sharedInstance] loginWithUsername:username password:password succeed:^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [weakSelf performSegueWithIdentifier:@"SPProjListViewController" sender:nil];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SPProjListViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"SPProjListViewController"];
+        
+        if ([SPAPI sharedInstance].currentUser.defaultProj) {
+            viewController.proj = [SPAPI sharedInstance].currentUser.defaultProj;
+            [weakSelf.navigationController pushViewController:viewController animated:NO];
+        }else{
+            [weakSelf.navigationController pushViewController:viewController animated:YES];
+        }
+//        [weakSelf performSegueWithIdentifier:@"SPProjListViewController" sender:nil];
     } failed:^(NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [CATMessageView showWithMessage:@"登录失败"];
