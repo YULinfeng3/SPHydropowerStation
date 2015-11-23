@@ -23,4 +23,9 @@
 - (void)projListWithSucceed:(void (^)(NSArray* projList))succeed
                      failed:(void (^)(NSError* error))failed;
 
+- (void)projDetailWithId:(NSString*)projId
+                 succeed:(void (^)(SPProj* proj))succeed
+                  failed:(void (^)(NSError* error))failed;
+
+
 @end

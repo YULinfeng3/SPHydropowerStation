@@ -41,9 +41,16 @@
                     
                     [weakSelf defaultProjWithUserId:userID succeed:^(NSDictionary* data){
                         if ([userID isEqualToString:data[@"UserID"]]) {
-                            [SPAPI sharedInstance].currentUser.defaultProj = [SPProj projWithJSON:data];
+                            NSString* projId = data[@"LoginProj"];
+                            [weakSelf projDetailWithId:projId succeed:^(SPProj *proj) {
+                                [SPAPI sharedInstance].currentUser.defaultProj = proj;
+                                succeed();
+                            } failed:^(NSError *error) {
+                               succeed();
+                            }];
+                        }else{
+                            succeed();
                         }
-                        succeed();
                     } failed:^(NSError *error) {
                         failed(nil);
                     }];
@@ -115,6 +122,29 @@
                 [projList addObject:model];
             }
             succeed(projList);
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
+}
+
+- (void)projDetailWithId:(NSString*)projId
+                 succeed:(void (^)(SPProj* proj))succeed
+                  failed:(void (^)(NSError* error))failed{
+    NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/Get_Proj?key=ecidi123456&projID=%@",projId];
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+            NSString* str = data;
+            NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            NSDictionary* data = nil;
+            if (array && array.count > 0) {
+                data = array[0];
+            }
+            SPProj* model = [SPProj projWithJSON:data];
+            succeed(model);
         });
     } failed:^(NSError *error) {
         MAIN(^{

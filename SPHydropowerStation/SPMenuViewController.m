@@ -105,7 +105,7 @@
 #pragma mark - UICollectionViewDelegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(((NSInteger)SCREEN_WIDTH - 10) / 4, ((NSInteger)SCREEN_WIDTH - 10) / 4);
+    return CGSizeMake(((NSInteger)SCREEN_WIDTH - 10) / 4, ((NSInteger)SCREEN_WIDTH - 10) / 4 - 30);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
