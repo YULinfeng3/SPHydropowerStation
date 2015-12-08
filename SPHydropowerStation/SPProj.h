@@ -61,6 +61,8 @@
 @property (nonatomic,copy) NSString* VehicleWait;
 @property (nonatomic,copy) NSString* VehilceFlameout;
 
+@property (nonatomic,retain) NSArray* imageList;
+
 + (SPProj*)projWithJSON:(NSDictionary*)json;
 
 @end

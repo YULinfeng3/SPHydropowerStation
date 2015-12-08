@@ -55,6 +55,7 @@
     [[SPAPI sharedInstance] getProjImagesWithId:left.ProjID succeed:^(NSArray* imageList){
         if (imageList.count > 0) {
             [weakSelf.leftImageView sd_setImageWithURL:[NSURL URLWithString:imageList[0]]];
+            left.imageList = imageList;
         }
     } failed:^(NSError *error) {
     }];
@@ -62,6 +63,7 @@
     [[SPAPI sharedInstance] getProjImagesWithId:right.ProjID succeed:^(NSArray* imageList){
         if (imageList.count > 0) {
             [weakSelf.rightImageView sd_setImageWithURL:[NSURL URLWithString:imageList[0]]];
+            right.imageList = imageList;
         }
     } failed:^(NSError *error) {
     }];

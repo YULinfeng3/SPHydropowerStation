@@ -120,6 +120,7 @@
     }else if(indexPath.row == 2){
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         SPProjDetailViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"SPProjDetailViewController"];
+        viewController.proj = self.proj;
         [self.navigationController pushViewController:viewController animated:YES];
         return;
     }
@@ -128,11 +129,12 @@
     
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     
-    if (indexPath.row == 4) {
+    if (indexPath.row == 5) {
         url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=huanningtujiankong",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
-    }else if (indexPath.row == 7){
-        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     }
+//    else if (indexPath.row == 7){
+//        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+//    }
     
     
     vc.url = url;
