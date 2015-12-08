@@ -109,6 +109,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    // BUGFIX
     SPProj* proj = self.projList[indexPath.row];
     [self performSegueWithIdentifier:@"SPMenuViewController" sender:proj];
 }
