@@ -110,17 +110,13 @@
 		84AA49291BF2E3B5001F71DD /* SPHydropowerStation */ = {
 			isa = PBXGroup;
 			children = (
+				84AA49331BF2E3B5001F71DD /* Main.storyboard */,
+				84AA49381BF2E3B5001F71DD /* LaunchScreen.storyboard */,
 				84AA495D1BF301EC001F71DD /* Model */,
 				84AA49521BF2EF11001F71DD /* API */,
 				84AA49511BF2EACD001F71DD /* resource */,
 				84AA494B1BF2E9C5001F71DD /* controller */,
 				84AA494A1BF2E9BE001F71DD /* view */,
-				84AA492D1BF2E3B5001F71DD /* AppDelegate.h */,
-				84AA492E1BF2E3B5001F71DD /* AppDelegate.m */,
-				84AA49331BF2E3B5001F71DD /* Main.storyboard */,
-				84AA49361BF2E3B5001F71DD /* Assets.xcassets */,
-				84AA49381BF2E3B5001F71DD /* LaunchScreen.storyboard */,
-				84AA493B1BF2E3B5001F71DD /* Info.plist */,
 				84AA492A1BF2E3B5001F71DD /* Supporting Files */,
 			);
 			path = SPHydropowerStation;
@@ -129,6 +125,9 @@
 		84AA492A1BF2E3B5001F71DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84AA492D1BF2E3B5001F71DD /* AppDelegate.h */,
+				84AA492E1BF2E3B5001F71DD /* AppDelegate.m */,
+				84AA493B1BF2E3B5001F71DD /* Info.plist */,
 				84AA492B1BF2E3B5001F71DD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -172,6 +171,7 @@
 		84AA49511BF2EACD001F71DD /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				84AA49361BF2E3B5001F71DD /* Assets.xcassets */,
 			);
 			name = resource;
 			sourceTree = "<group>";
