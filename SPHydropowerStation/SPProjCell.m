@@ -9,6 +9,8 @@
 #import "SPProjCell.h"
 #import "MacroDefinition.h"
 #import "SPAPI.h"
+#import <SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SPProjCell ()
 
@@ -35,12 +37,12 @@
     self.rightBkView.layer.borderWidth = 1;
     self.rightBkView.layer.borderColor = RGBACOLOR(211, 211, 211, 1).CGColor;
     self.rightBkView.layer.cornerRadius = 5;
-
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -48,16 +50,25 @@
                    right:(SPProj*)right{
     self.leftTitleLabel.text = left.ProjName;
     self.rightTitleLabel.text = right.ProjName;
-
     
+    WS(weakSelf);
     [[SPAPI sharedInstance] getProjImagesWithId:left.ProjID succeed:^(NSArray* imageList){
-        
+        if (imageList.count > 0) {
+            [weakSelf.leftImageView sd_setImageWithURL:[NSURL URLWithString:imageList[0]]];
+        }
     } failed:^(NSError *error) {
-        
     }];
-//    self.districtLabel.text = proj.District;
-//    self.typeLabel.text = proj.ProjType;
-//    self.introductionLabel.text = proj.Introduction;
+    
+    [[SPAPI sharedInstance] getProjImagesWithId:right.ProjID succeed:^(NSArray* imageList){
+        if (imageList.count > 0) {
+            [weakSelf.rightImageView sd_setImageWithURL:[NSURL URLWithString:imageList[0]]];
+        }
+    } failed:^(NSError *error) {
+    }];
+    
+    //    self.districtLabel.text = proj.District;
+    //    self.typeLabel.text = proj.ProjType;
+    //    self.introductionLabel.text = proj.Introduction;
 }
 
 @end
