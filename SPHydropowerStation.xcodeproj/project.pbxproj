@@ -11,6 +11,7 @@
 		8407E8D81C168A11001D1BCC /* SPProjDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8D71C168A11001D1BCC /* SPProjDetailViewController.m */; };
 		8407E8DB1C16DD18001D1BCC /* SPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8DA1C16DD18001D1BCC /* SPMenuItem.m */; };
 		8407E8DE1C1722DA001D1BCC /* SPImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8DD1C1722DA001D1BCC /* SPImageDetailViewController.m */; };
+		8407E8E11C1729CF001D1BCC /* SPMenuSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8E01C1729CF001D1BCC /* SPMenuSelectionViewController.m */; };
 		844AA1811BFD70AB00604523 /* SPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AA1801BFD70AB00604523 /* SPNavigationController.m */; };
 		84AA492C1BF2E3B5001F71DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492B1BF2E3B5001F71DD /* main.m */; };
 		84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA492E1BF2E3B5001F71DD /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 		8407E8DA1C16DD18001D1BCC /* SPMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMenuItem.m; sourceTree = "<group>"; };
 		8407E8DC1C1722DA001D1BCC /* SPImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPImageDetailViewController.h; sourceTree = "<group>"; };
 		8407E8DD1C1722DA001D1BCC /* SPImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPImageDetailViewController.m; sourceTree = "<group>"; };
+		8407E8DF1C1729CF001D1BCC /* SPMenuSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuSelectionViewController.h; sourceTree = "<group>"; };
+		8407E8E01C1729CF001D1BCC /* SPMenuSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMenuSelectionViewController.m; sourceTree = "<group>"; };
 		844AA17F1BFD70AB00604523 /* SPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNavigationController.h; sourceTree = "<group>"; };
 		844AA1801BFD70AB00604523 /* SPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNavigationController.m; sourceTree = "<group>"; };
 		84AA49271BF2E3B5001F71DD /* 智慧工程平台.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "智慧工程平台.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +161,8 @@
 				84AA49451BF2E861001F71DD /* SPProjListViewController.m */,
 				84AA49471BF2E86F001F71DD /* SPMenuViewController.h */,
 				84AA49481BF2E86F001F71DD /* SPMenuViewController.m */,
+				8407E8DF1C1729CF001D1BCC /* SPMenuSelectionViewController.h */,
+				8407E8E01C1729CF001D1BCC /* SPMenuSelectionViewController.m */,
 				844AA17F1BFD70AB00604523 /* SPNavigationController.h */,
 				844AA1801BFD70AB00604523 /* SPNavigationController.m */,
 				8407E8D61C168A11001D1BCC /* SPProjDetailViewController.h */,
@@ -334,6 +339,7 @@
 				844AA1811BFD70AB00604523 /* SPNavigationController.m in Sources */,
 				8407E8DE1C1722DA001D1BCC /* SPImageDetailViewController.m in Sources */,
 				8407E8D81C168A11001D1BCC /* SPProjDetailViewController.m in Sources */,
+				8407E8E11C1729CF001D1BCC /* SPMenuSelectionViewController.m in Sources */,
 				84AA49631BF306FE001F71DD /* SPProj.m in Sources */,
 				84AA49461BF2E861001F71DD /* SPProjListViewController.m in Sources */,
 				84AA496E1BF3148B001F71DD /* UDWebViewController.m in Sources */,
