@@ -11,6 +11,7 @@
 
 @interface SPProjCell : UITableViewCell
 
-- (void)bindData:(SPProj*)proj;
+- (void)bindDataWithLeft:(SPProj*)left
+                   right:(SPProj*)right;
 
 @end

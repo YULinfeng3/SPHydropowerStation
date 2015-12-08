@@ -8,14 +8,18 @@
 
 #import "SPProjCell.h"
 #import "MacroDefinition.h"
+#import "SPAPI.h"
 
 @interface SPProjCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *districtLabel;
-@property (weak, nonatomic) IBOutlet UILabel *introductionLabel;
-@property (weak, nonatomic) IBOutlet UIView *bkView;
+@property (weak, nonatomic) IBOutlet UILabel *leftTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *leftImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
+
+@property (weak, nonatomic) IBOutlet UIView *leftBkView;
+@property (weak, nonatomic) IBOutlet UIView *rightBkView;
 
 @end
 
@@ -24,9 +28,14 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.bkView.layer.borderWidth = 1;
-    self.bkView.layer.borderColor = RGBACOLOR(211, 211, 211, 1).CGColor;
-    self.bkView.layer.cornerRadius = 5;
+    self.leftBkView.layer.borderWidth = 1;
+    self.leftBkView.layer.borderColor = RGBACOLOR(211, 211, 211, 1).CGColor;
+    self.leftBkView.layer.cornerRadius = 5;
+    
+    self.rightBkView.layer.borderWidth = 1;
+    self.rightBkView.layer.borderColor = RGBACOLOR(211, 211, 211, 1).CGColor;
+    self.rightBkView.layer.cornerRadius = 5;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,11 +44,20 @@
     // Configure the view for the selected state
 }
 
-- (void)bindData:(SPProj*)proj{
-    self.titleLabel.text = proj.ProjName;
-    self.districtLabel.text = proj.District;
-    self.typeLabel.text = proj.ProjType;
-    self.introductionLabel.text = proj.Introduction;
+- (void)bindDataWithLeft:(SPProj*)left
+                   right:(SPProj*)right{
+    self.leftTitleLabel.text = left.ProjName;
+    self.rightTitleLabel.text = right.ProjName;
+
+    
+    [[SPAPI sharedInstance] getProjImagesWithId:left.ProjID succeed:^(NSArray* imageList){
+        
+    } failed:^(NSError *error) {
+        
+    }];
+//    self.districtLabel.text = proj.District;
+//    self.typeLabel.text = proj.ProjType;
+//    self.introductionLabel.text = proj.Introduction;
 }
 
 @end

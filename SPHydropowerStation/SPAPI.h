@@ -27,5 +27,8 @@
                  succeed:(void (^)(SPProj* proj))succeed
                   failed:(void (^)(NSError* error))failed;
 
+- (void)getProjImagesWithId:(NSString*)projId
+                    succeed:(void (^)(NSArray* imageList))succeed
+                     failed:(void (^)(NSError* error))failed;
 
 @end

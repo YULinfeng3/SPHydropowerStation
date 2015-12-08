@@ -153,4 +153,23 @@
     }];
 }
 
+- (void)getProjImagesWithId:(NSString*)projId
+                    succeed:(void (^)(NSArray* imageList))succeed
+                     failed:(void (^)(NSError* error))failed{
+    NSString* url = [NSString stringWithFormat:@"http://221.12.173.120/WisdomService/api/Values/GetProjPictures?key=ecidi123456&projID=%@",projId];
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+            NSString* str = data;
+            NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            
+            succeed(array);
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
+}
+
 @end

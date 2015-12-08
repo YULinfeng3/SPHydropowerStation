@@ -75,22 +75,32 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.projList.count;
+    return self.projList.count % 2 + self.projList.count / 2;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SPProjCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SPProjCell"];
     
-    SPProj* proj = self.projList[indexPath.row];
-    [cell bindData:proj];
+    SPProj* left = self.projList[indexPath.row * 2];
+    SPProj* right = nil;
+    if (indexPath.row * 2 + 1 < self.projList.count) {
+        right = self.projList[indexPath.row * 2 + 1];
+    }
+    
+    [cell bindDataWithLeft:left right:right];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SPProj* proj = self.projList[indexPath.row];
+    SPProj* left = self.projList[indexPath.row * 2];
+    SPProj* right = nil;
+    if (indexPath.row * 2 + 1 < self.projList.count) {
+        right = self.projList[indexPath.row * 2 + 1];
+    }
+    
     return [tableView fd_heightForCellWithIdentifier:@"SPProjCell" cacheByIndexPath:indexPath configuration:^(id cell) {
-        [cell bindData:proj];
+        [cell bindDataWithLeft:left right:right];
     }];
 }
 
