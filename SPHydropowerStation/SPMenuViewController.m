@@ -10,6 +10,8 @@
 #import "MacroDefinition.h"
 #import "UDWebViewController.h"
 #import "SPAPI.h"
+#import "SPProjDetailViewController.h"
+#import "SPMenuItem.h"
 
 @interface SPMenuCell : UICollectionViewCell
 
@@ -38,30 +40,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.data = @[@{@"title":@"综合展示",@"icon":@"1"},
-//                  @{@"title":@"过程管理",@"icon":@"2"},
-//                  @{@"title":@"进度管理",@"icon":@"3"},
-//                  @{@"title":@"安全监测",@"icon":@"4"},
-//                  @{@"title":@"安全巡查",@"icon":@"5"},
-//                  @{@"title":@"资源监控",@"icon":@"6"},
-//                  @{@"title":@"指标分析",@"icon":@"7"},
-//                  @{@"title":@"混凝土监控",@"icon":@"8"},
-//                  @{@"title":@"视频管理",@"icon":@"9"},
-//                  @{@"title":@"系统管理",@"icon":@"10"},
-//                  @{@"title":@"NONE",@"icon":@"NONE"},
-//                  @{@"title":@"NONE",@"icon":@"NONE"}];
-    self.data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
-                  @{@"title":@"电站3D",@"icon":@"2"},
-                  @{@"title":@"项目监控",@"icon":@"1"},
-                  @{@"title":@"资源监控",@"icon":@"5"},
-                  @{@"title":@"混凝土监控",@"icon":@"6"},
-                  @{@"title":@"碾压监控",@"icon":@"4"},
-                  @{@"title":@"验收管理",@"icon":@"10"},
-                  @{@"title":@"视频监控",@"icon":@"7"},
-                  @{@"title":@"现场巡检",@"icon":@"8"},
-                  @{@"title":@"安全监测",@"icon":@"9"},
-                  @{@"title":@"档案管理",@"icon":@"dagl"},
-                  @{@"title":@"施工面貌",@"icon":@"sgmm"}];
+//    NSArray* data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
+//                      @{@"title":@"电站3D",@"icon":@"2"},
+//                      @{@"title":@"项目监控",@"icon":@"1"},
+//                      @{@"title":@"资源监控",@"icon":@"5"},
+//                      @{@"title":@"混凝土监控",@"icon":@"6"},
+//                      @{@"title":@"碾压监控",@"icon":@"4"},
+//                      @{@"title":@"验收管理",@"icon":@"10"},
+//                      @{@"title":@"视频监控",@"icon":@"7"},
+//                      @{@"title":@"现场巡检",@"icon":@"8"},
+//                      @{@"title":@"安全监测",@"icon":@"9"},
+//                      @{@"title":@"档案管理",@"icon":@"dagl"},
+//                      @{@"title":@"施工面貌",@"icon":@"sgmm"}];
+    NSArray* data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
+                      @{@"title":@"综合展示",@"icon":@"2"},
+                      @{@"title":@"工程简介",@"icon":@"1"},
+                      @{@"title":@"厂房3D",@"icon":@"5"},
+                      @{@"title":@"资源监控",@"icon":@"6"},
+                      @{@"title":@"混凝土监控",@"icon":@"6"},
+                      @{@"title":@"大数据分析",@"icon":@"4"},
+                      @{@"title":@"系统管理",@"icon":@"10"}];
+    
+    NSMutableArray* menuList = [NSMutableArray array];
+    for (NSDictionary* item in data) {
+        SPMenuItem* model = [SPMenuItem menuWithJSON:item];
+        [menuList addObject:model];
+    }
+    self.data = [NSArray arrayWithArray:menuList];
     
     self.projTitleLabel.text = self.proj.ProjName;
 }
@@ -94,9 +99,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SPMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SPMenuCell" forIndexPath:indexPath];
     
-    NSDictionary* d = [self.data objectAtIndex:indexPath.row];
-    cell.titleLabel.text = d[@"title"];
-    cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d[@"icon"]]];
+    SPMenuItem* d = [self.data objectAtIndex:indexPath.row];
+    cell.titleLabel.text = d.title;
+    cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d.imageName]];
     
     
     return cell;
@@ -111,6 +116,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }else if(indexPath.row == 2){
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SPProjDetailViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"SPProjDetailViewController"];
+        [self.navigationController pushViewController:viewController animated:YES];
         return;
     }
     
