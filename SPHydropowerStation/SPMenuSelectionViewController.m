@@ -8,6 +8,7 @@
 
 #import "SPMenuSelectionViewController.h"
 #import "SPMenuItem.h"
+#import "SPAPI.h"
 
 @interface SPMenuSelectionViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -20,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +46,19 @@
     
 }
 
+- (IBAction)onBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onSubmit:(id)sender {
+    // 保存
+    [SPAPI saveMenuItems:self.menuList];
+    if (self.menuEditCompletion) {
+        self.menuEditCompletion(self.menuList);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -60,6 +76,10 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
+    if (indexPath.row == 0 || indexPath.row == 1) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -67,6 +87,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0 || indexPath.row == 1) {
+        return;
+    }
     
     SPMenuItem* d = [self.menuList objectAtIndex:indexPath.row];
     d.show = !d.show;

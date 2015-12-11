@@ -16,4 +16,6 @@
 
 + (SPMenuItem*)menuWithJSON:(NSDictionary*)json;
 
+- (NSDictionary*)dictionaryProxy;
+
 @end

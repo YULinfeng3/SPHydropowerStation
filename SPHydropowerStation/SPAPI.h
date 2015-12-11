@@ -15,6 +15,10 @@
 
 + (instancetype)sharedInstance;
 
++ (NSArray*)loadMenuItems;
+
++ (void)saveMenuItems:(NSArray*)menuItems;
+
 - (void)loginWithUsername:(NSString*)username
                  password:(NSString*)password
                   succeed:(void (^)())succeed
@@ -30,5 +34,6 @@
 - (void)getProjImagesWithId:(NSString*)projId
                     succeed:(void (^)(NSArray* imageList))succeed
                      failed:(void (^)(NSError* error))failed;
+
 
 @end

@@ -11,6 +11,7 @@
 #import "MacroDefinition.h"
 #import "SPUser.h"
 #import "SPProj.h"
+#import "SPMenuItem.h"
 
 @implementation SPAPI
 
@@ -23,6 +24,61 @@
     
     return sharedInstance;
 }
+
++ (NSArray*)loadMenuItems{
+    NSArray* menuItems = [[NSUserDefaults standardUserDefaults] objectForKey:@"menuItems"];
+    
+    if (menuItems) {
+        NSMutableArray* temp = [NSMutableArray array];
+        for (NSDictionary* item in menuItems) {
+            SPMenuItem* model = [SPMenuItem menuWithJSON:item];
+            [temp addObject:model];
+        }
+        return [NSArray arrayWithArray:temp];
+    }else{
+        // 第一次初始化
+        NSArray* data = @[@{@"title":@"切换项目",@"imageName":@"qhxm",@"show":@(YES)},
+                          @{@"title":@"综合展示",@"imageName":@"zhzs",@"show":@(YES)},
+                          @{@"title":@"工程简介",@"imageName":@"gcjj",@"show":@(YES)},
+                          @{@"title":@"厂房3D",@"imageName":@"cf3d",@"show":@(YES)},
+                          @{@"title":@"资源监控",@"imageName":@"zyjk",@"show":@(YES)},
+                          @{@"title":@"混凝土监控",@"imageName":@"hntjk",@"show":@(YES)},
+                          @{@"title":@"大数据分析",@"imageName":@"4",@"show":@(YES)},
+                          @{@"title":@"系统管理",@"imageName":@"xtgl",@"show":@(YES)},
+                          
+                          @{@"title":@"碾压监控",@"imageName":@"nyjk",@"show":@(NO)},
+                          @{@"title":@"验收管理",@"imageName":@"ysgl",@"show":@(NO)},
+                          @{@"title":@"视频监控",@"imageName":@"spjk",@"show":@(NO)},
+                          @{@"title":@"现场巡检",@"imageName":@"xcxj",@"show":@(NO)},
+                          @{@"title":@"安全监测",@"imageName":@"aqjc",@"show":@(NO)},
+                          @{@"title":@"档案管理",@"imageName":@"dagl",@"show":@(NO)},
+                          @{@"title":@"施工面貌",@"imageName":@"10",@"show":@(NO)},
+                           @{@"title":@"进度监控",@"imageName":@"10",@"show":@(NO)},
+                           @{@"title":@"成本监控",@"imageName":@"10",@"show":@(NO)}];
+        
+        NSMutableArray* menuList = [NSMutableArray array];
+        for (NSDictionary* item in data) {
+            SPMenuItem* model = [SPMenuItem menuWithJSON:item];
+            [menuList addObject:model];
+        }
+        
+        return [NSArray arrayWithArray:menuList];
+    }
+    
+    
+    return nil;
+}
+
++ (void)saveMenuItems:(NSArray*)menuItems{
+    NSMutableArray* temp = [NSMutableArray array];
+    for (SPMenuItem* item in menuItems) {
+        NSDictionary* d = [item dictionaryProxy];
+        [temp addObject:d];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:temp forKey:@"menuItems"];
+}
+
 
 - (void)loginWithUsername:(NSString*)username
                  password:(NSString*)password

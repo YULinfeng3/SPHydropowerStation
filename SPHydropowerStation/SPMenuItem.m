@@ -14,10 +14,16 @@
     SPMenuItem* model = [[SPMenuItem alloc] init];
     
     model.title = json[@"title"];
-    model.imageName = json[@"icon"];
+    model.imageName = json[@"imageName"];
     model.show = [json[@"show"] boolValue];
 
     return model;
+}
+
+- (NSDictionary*)dictionaryProxy{
+    return @{@"title":self.title,
+             @"imageName":self.imageName,
+             @"show":@(self.show)};
 }
 
 @end

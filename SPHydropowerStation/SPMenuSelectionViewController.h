@@ -12,4 +12,6 @@
 
 @property (nonatomic,retain) NSArray* menuList;
 
+@property (nonatomic,copy) void (^menuEditCompletion)(NSArray* menuList);
+
 @end

@@ -12,6 +12,7 @@
 #import "SPAPI.h"
 #import "SPProjDetailViewController.h"
 #import "SPMenuItem.h"
+#import "SPMenuSelectionViewController.h"
 
 @interface SPMenuCell : UICollectionViewCell
 
@@ -29,6 +30,7 @@
 @interface SPMenuViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,retain) NSArray* originData;
 @property (nonatomic,retain) NSArray* data;
 @property (weak, nonatomic) IBOutlet UILabel *projTitleLabel;
 
@@ -40,35 +42,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    NSArray* data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
-//                      @{@"title":@"电站3D",@"icon":@"2"},
-//                      @{@"title":@"项目监控",@"icon":@"1"},
-//                      @{@"title":@"资源监控",@"icon":@"5"},
-//                      @{@"title":@"混凝土监控",@"icon":@"6"},
-//                      @{@"title":@"碾压监控",@"icon":@"4"},
-//                      @{@"title":@"验收管理",@"icon":@"10"},
-//                      @{@"title":@"视频监控",@"icon":@"7"},
-//                      @{@"title":@"现场巡检",@"icon":@"8"},
-//                      @{@"title":@"安全监测",@"icon":@"9"},
-//                      @{@"title":@"档案管理",@"icon":@"dagl"},
-//                      @{@"title":@"施工面貌",@"icon":@"sgmm"}];
-    NSArray* data = @[@{@"title":@"切换项目",@"icon":@"qhxm"},
-                      @{@"title":@"综合展示",@"icon":@"2"},
-                      @{@"title":@"工程简介",@"icon":@"1"},
-                      @{@"title":@"厂房3D",@"icon":@"5"},
-                      @{@"title":@"资源监控",@"icon":@"6"},
-                      @{@"title":@"混凝土监控",@"icon":@"6"},
-                      @{@"title":@"大数据分析",@"icon":@"4"},
-                      @{@"title":@"系统管理",@"icon":@"10"}];
-    
-    NSMutableArray* menuList = [NSMutableArray array];
-    for (NSDictionary* item in data) {
-        SPMenuItem* model = [SPMenuItem menuWithJSON:item];
-        [menuList addObject:model];
-    }
-    self.data = [NSArray arrayWithArray:menuList];
-    
     self.projTitleLabel.text = self.proj.ProjName;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.originData = [SPAPI loadMenuItems];
+    [self processData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +67,19 @@
  }
  */
 
+- (void)processData{
+    // 过滤不显示的
+    NSMutableArray* temp = [NSMutableArray array];
+    for (SPMenuItem* item in self.originData) {
+        if (item.show) {
+            [temp addObject:item];
+        }
+    }
+    self.data = [NSArray arrayWithArray:temp];
+    
+    [self.collectionView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -93,15 +87,23 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.data.count;
+    return self.data.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SPMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SPMenuCell" forIndexPath:indexPath];
     
+    if (indexPath.row == self.data.count) {
+        // 最后一个
+        cell.titleLabel.text = @"ADD";
+        return cell;
+    }
+    
     SPMenuItem* d = [self.data objectAtIndex:indexPath.row];
     cell.titleLabel.text = d.title;
     cell.coverImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",d.imageName]];
+    
+    
     
     
     return cell;
@@ -114,6 +116,22 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == self.data.count) {
+        // 最后一个
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SPMenuSelectionViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"SPMenuSelectionViewController"];
+        viewController.menuList = self.originData;
+        WS(weakSelf);
+        [viewController setMenuEditCompletion:^(NSArray *menuItems) {
+            weakSelf.originData = menuItems;
+            [weakSelf processData];
+        }];
+        [self.navigationController pushViewController:viewController animated:YES];
+        
+        return;
+    }
+    
     if (indexPath.row == 0) {
         [self.navigationController popViewControllerAnimated:YES];
         return;
@@ -125,16 +143,19 @@
         return;
     }
     
+    
     UDWebViewController *vc = [[UDWebViewController alloc] init];
     
+    SPMenuItem* item = [self.data objectAtIndex:indexPath.row];
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     
-    if (indexPath.row == 5) {
+    if ([item.title isEqualToString:@"混凝土监控"]) {
         url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=huanningtujiankong",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }else if ([item.title isEqualToString:@"视频监控"]) {
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }else if ([item.title isEqualToString:@"综合展示"]){
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/View/MainShow.aspx?projid=%@",self.proj.ProjID];
     }
-//    else if (indexPath.row == 7){
-//        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
-//    }
     
     
     vc.url = url;
