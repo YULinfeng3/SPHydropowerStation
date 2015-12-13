@@ -49,8 +49,9 @@
             _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
             _titleLabel.text = title;
             _titleLabel.font = [UIFont fontWithStyle:CATFontStypeAlertTitle];
-            _titleLabel.textColor = [UIColor blackColor];
+            _titleLabel.textColor = [UIColor whiteColor];
             _titleLabel.numberOfLines = 0;
+            _titleLabel.backgroundColor = [UIColor colorWithRed:31/255.0 green:185/255.0 blue:243/255.0 alpha:1];
             [_contentView addSubview:_titleLabel];
         }
         

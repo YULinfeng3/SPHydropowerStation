@@ -45,15 +45,16 @@
     [super viewDidAppear:animated];
     
     [[SPAPI sharedInstance] appInfoSucceed:^(SPAppInfo *info) {
-        if ([info.version isEqualToString:[SPAPI sharedInstance].appVersion]) {
+        if (![info.version isEqualToString:[SPAPI sharedInstance].appVersion]) {
             // 提示
             NSMutableString* msg = [NSMutableString string];
             for (NSString* item in info.updatedescribe) {
                 [msg appendFormat:@"%@\n",item];
             }
             [msg appendFormat:@"下载地址：%@",info.apppath];
+            NSString* title = [NSString stringWithFormat:@"有新版本 (v%@)",info.version];
             
-            CATAlertView *alert = [[CATAlertView alloc] initWithTitle:@"有新版本" Message:msg Hidden:NO touchBlock:^(id sender, NSInteger index) {
+            CATAlertView *alert = [[CATAlertView alloc] initWithTitle:title Message:msg Hidden:NO touchBlock:^(id sender, NSInteger index) {
                 if (index == 1) {
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:info.apppath]];
                 }

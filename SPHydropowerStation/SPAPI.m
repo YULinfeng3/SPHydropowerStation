@@ -236,13 +236,14 @@
     NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/app/iosconfig.json"];
     [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
         MAIN(^{
-//            NSString* str = data;
-        NSString* str = @"[{\"version\":\"1.0.4\",\"updatetime\":\"2015-12-13\",\"apppath\":\"http://www.pgyer.com/AkV7\",\"updatedescribe\":[\"调整APP功能菜单结构\",\"增加菜单自定义功能\",\"优化项目选择功能\",\"增加项目简介功能\",\"增加综合展示功能\"]}]";
+            NSString* str = data;
+            
+//        NSString* str = @"[{\"version\":\"1.0.4\",\"updatetime\":\"2015-12-13\",\"apppath\":\"http://www.pgyer.com/AkV7\",\"updatedescribe\":[\"调整APP功能菜单结构\",\"增加菜单自定义功能\",\"优化项目选择功能\",\"增加项目简介功能\",\"增加综合展示功能\"]}]";
             NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
             NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         if (array && array.count > 0) {
             SPAppInfo* model = [SPAppInfo appInfoWithJSON:array[0]];
-            
+            NSLog(model.version);
             succeed(model);
         }
         });
