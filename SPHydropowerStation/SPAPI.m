@@ -43,7 +43,7 @@
                           @{@"title":@"厂房3D",@"imageName":@"cf3d",@"show":@(YES)},
                           @{@"title":@"资源监控",@"imageName":@"zyjk",@"show":@(YES)},
                           @{@"title":@"混凝土监控",@"imageName":@"hntjk",@"show":@(YES)},
-                          @{@"title":@"大数据分析",@"imageName":@"4",@"show":@(YES)},
+                          @{@"title":@"大数据分析",@"imageName":@"dsjfx",@"show":@(YES)},
                           @{@"title":@"系统管理",@"imageName":@"xtgl",@"show":@(YES)},
                           
                           @{@"title":@"碾压监控",@"imageName":@"nyjk",@"show":@(NO)},
@@ -52,9 +52,9 @@
                           @{@"title":@"现场巡检",@"imageName":@"xcxj",@"show":@(NO)},
                           @{@"title":@"安全监测",@"imageName":@"aqjc",@"show":@(NO)},
                           @{@"title":@"档案管理",@"imageName":@"dagl",@"show":@(NO)},
-                          @{@"title":@"施工面貌",@"imageName":@"10",@"show":@(NO)},
-                           @{@"title":@"进度监控",@"imageName":@"10",@"show":@(NO)},
-                           @{@"title":@"成本监控",@"imageName":@"10",@"show":@(NO)}];
+                          @{@"title":@"施工面貌",@"imageName":@"sgmm",@"show":@(NO)},
+                           @{@"title":@"进度监控",@"imageName":@"jdjk",@"show":@(NO)},
+                           @{@"title":@"成本监控",@"imageName":@"cbjk",@"show":@(NO)}];
         
         NSMutableArray* menuList = [NSMutableArray array];
         for (NSDictionary* item in data) {

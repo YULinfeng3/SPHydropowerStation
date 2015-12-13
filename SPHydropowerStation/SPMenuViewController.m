@@ -95,7 +95,8 @@
     
     if (indexPath.row == self.data.count) {
         // 最后一个
-        cell.titleLabel.text = @"ADD";
+        cell.titleLabel.text = @"";
+        cell.coverImageView.image = [UIImage imageNamed:@"add"];
         return cell;
     }
     
