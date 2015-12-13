@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "SPUser.h"
 
+@class SPAppInfo;
+
 @interface SPAPI : NSObject
 
 @property (nonatomic,retain) SPUser* currentUser;
+@property (nonatomic,retain) NSString* appVersion;
 
 + (instancetype)sharedInstance;
 
@@ -35,5 +38,7 @@
                     succeed:(void (^)(NSArray* imageList))succeed
                      failed:(void (^)(NSError* error))failed;
 
+- (void)appInfoSucceed:(void (^)(SPAppInfo* info))succeed
+                failed:(void (^)(NSError* error))failed;
 
 @end

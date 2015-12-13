@@ -13,6 +13,8 @@
 #import "MacroDefinition.h"
 #import "SPMenuViewController.h"
 #import "SPProjListViewController.h"
+#import "SPAppInfo.h"
+#import "CATAlertView.h"
 
 @interface SPLoginViewController ()
 
@@ -37,6 +39,32 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [[SPAPI sharedInstance] appInfoSucceed:^(SPAppInfo *info) {
+        if ([info.version isEqualToString:[SPAPI sharedInstance].appVersion]) {
+            // 提示
+            NSMutableString* msg = [NSMutableString string];
+            for (NSString* item in info.updatedescribe) {
+                [msg appendFormat:@"%@\n",item];
+            }
+            [msg appendFormat:@"下载地址：%@",info.apppath];
+            
+            CATAlertView *alert = [[CATAlertView alloc] initWithTitle:@"有新版本" Message:msg Hidden:NO touchBlock:^(id sender, NSInteger index) {
+                if (index == 1) {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:info.apppath]];
+                }
+            } cancelButtonTitle:@"取消" andButtonsTitles:@"去下载", nil];
+            [alert show];
+
+        }
+        
+        [SPAPI sharedInstance].appVersion = info.version;
+    } failed:^(NSError *error) {
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

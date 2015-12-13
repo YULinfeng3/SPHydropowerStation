@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2EAEC07F76D0E6654C72286A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */; };
+		8406717B1C1D71F200A7E649 /* SPAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406717A1C1D71F200A7E649 /* SPAppInfo.m */; };
+		8406717E1C1D767C00A7E649 /* CATAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406717D1C1D767C00A7E649 /* CATAlertView.m */; };
+		840671811C1D772800A7E649 /* UIFont+Catch.m in Sources */ = {isa = PBXBuildFile; fileRef = 840671801C1D772800A7E649 /* UIFont+Catch.m */; };
 		8407E8D81C168A11001D1BCC /* SPProjDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8D71C168A11001D1BCC /* SPProjDetailViewController.m */; };
 		8407E8DB1C16DD18001D1BCC /* SPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8DA1C16DD18001D1BCC /* SPMenuItem.m */; };
 		8407E8DE1C1722DA001D1BCC /* SPImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407E8DD1C1722DA001D1BCC /* SPImageDetailViewController.m */; };
@@ -36,6 +39,12 @@
 		41D547107D1D30004A04FEA8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4E3B85BC173D5AA6F0BF2FB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		674415E92ED2B76F01911F67 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		840671791C1D71F200A7E649 /* SPAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppInfo.h; sourceTree = "<group>"; };
+		8406717A1C1D71F200A7E649 /* SPAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppInfo.m; sourceTree = "<group>"; };
+		8406717C1C1D767C00A7E649 /* CATAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATAlertView.h; sourceTree = "<group>"; };
+		8406717D1C1D767C00A7E649 /* CATAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATAlertView.m; sourceTree = "<group>"; };
+		8406717F1C1D772800A7E649 /* UIFont+Catch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Catch.h"; sourceTree = "<group>"; };
+		840671801C1D772800A7E649 /* UIFont+Catch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Catch.m"; sourceTree = "<group>"; };
 		8407E8D61C168A11001D1BCC /* SPProjDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProjDetailViewController.h; sourceTree = "<group>"; };
 		8407E8D71C168A11001D1BCC /* SPProjDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProjDetailViewController.m; sourceTree = "<group>"; };
 		8407E8D91C16DD18001D1BCC /* SPMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuItem.h; sourceTree = "<group>"; };
@@ -139,6 +148,10 @@
 		84AA494A1BF2E9BE001F71DD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8406717F1C1D772800A7E649 /* UIFont+Catch.h */,
+				840671801C1D772800A7E649 /* UIFont+Catch.m */,
+				8406717C1C1D767C00A7E649 /* CATAlertView.h */,
+				8406717D1C1D767C00A7E649 /* CATAlertView.m */,
 				84AA49591BF2F98C001F71DD /* CATMessageView.h */,
 				84AA495A1BF2F98C001F71DD /* CATMessageView.m */,
 				84AA49641BF30BA2001F71DD /* SPProjCell.h */,
@@ -202,6 +215,8 @@
 				84AA49621BF306FE001F71DD /* SPProj.m */,
 				8407E8D91C16DD18001D1BCC /* SPMenuItem.h */,
 				8407E8DA1C16DD18001D1BCC /* SPMenuItem.m */,
+				840671791C1D71F200A7E649 /* SPAppInfo.h */,
+				8406717A1C1D71F200A7E649 /* SPAppInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -330,11 +345,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840671811C1D772800A7E649 /* UIFont+Catch.m in Sources */,
 				84AA49431BF2E762001F71DD /* SPLoginViewController.m in Sources */,
 				84AA492F1BF2E3B5001F71DD /* AppDelegate.m in Sources */,
 				84AA49491BF2E86F001F71DD /* SPMenuViewController.m in Sources */,
 				84AA495B1BF2F98C001F71DD /* CATMessageView.m in Sources */,
+				8406717E1C1D767C00A7E649 /* CATAlertView.m in Sources */,
 				84AA496D1BF3148B001F71DD /* UDWebView.m in Sources */,
+				8406717B1C1D71F200A7E649 /* SPAppInfo.m in Sources */,
 				84AA49551BF2EF1F001F71DD /* SPAPI.m in Sources */,
 				844AA1811BFD70AB00604523 /* SPNavigationController.m in Sources */,
 				8407E8DE1C1722DA001D1BCC /* SPImageDetailViewController.m in Sources */,

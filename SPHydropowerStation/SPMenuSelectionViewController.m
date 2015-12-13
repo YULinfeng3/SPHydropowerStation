@@ -70,6 +70,12 @@
     
     SPMenuItem* d = [self.menuList objectAtIndex:indexPath.row];
     cell.textLabel.text = d.title;
+    
+    UIImage* image = [UIImage imageNamed:d.imageName];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    cell.imageView.image = image;
+//    cell.imageView.backgroundColor = [UIColor blueColor];
+//    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     if (d.show) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{

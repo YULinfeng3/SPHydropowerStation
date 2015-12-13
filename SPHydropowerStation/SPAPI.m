@@ -12,6 +12,7 @@
 #import "SPUser.h"
 #import "SPProj.h"
 #import "SPMenuItem.h"
+#import "SPAppInfo.h"
 
 @implementation SPAPI
 
@@ -20,6 +21,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[SPAPI alloc] init];
+        // 获取AppVersion
+        sharedInstance.appVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppVersion"];
     });
     
     return sharedInstance;
@@ -226,6 +229,33 @@
             failed(error);
         });
     }];
+}
+
+- (void)appInfoSucceed:(void (^)(SPAppInfo* info))succeed
+                failed:(void (^)(NSError* error))failed{
+    NSString* url = [NSString stringWithFormat:@"http://120.24.215.190:108/app/iosconfig.json"];
+    [SPNetworkHelper getWithUrl:url params:nil succeed:^(id data, NSInteger count) {
+        MAIN(^{
+//            NSString* str = data;
+        NSString* str = @"[{\"version\":\"1.0.4\",\"updatetime\":\"2015-12-13\",\"apppath\":\"http://www.pgyer.com/AkV7\",\"updatedescribe\":[\"调整APP功能菜单结构\",\"增加菜单自定义功能\",\"优化项目选择功能\",\"增加项目简介功能\",\"增加综合展示功能\"]}]";
+            NSData* jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray* array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        if (array && array.count > 0) {
+            SPAppInfo* model = [SPAppInfo appInfoWithJSON:array[0]];
+            
+            succeed(model);
+        }
+        });
+    } failed:^(NSError *error) {
+        MAIN(^{
+            failed(error);
+        });
+    }];
+}
+
+- (void)setAppVersion:(NSString *)appVersion{
+    _appVersion = appVersion;
+    [[NSUserDefaults standardUserDefaults] setObject:appVersion forKey:@"AppVersion"];
 }
 
 @end

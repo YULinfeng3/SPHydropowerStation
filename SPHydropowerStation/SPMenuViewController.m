@@ -155,7 +155,9 @@
     }else if ([item.title isEqualToString:@"视频监控"]) {
         url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=shipinguanli",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     }else if ([item.title isEqualToString:@"综合展示"]){
-        url = [NSString stringWithFormat:@"http://120.24.215.190:108/View/MainShow.aspx?projid=%@",self.proj.ProjID];
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=zonghezhanshi",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }else if ([item.title isEqualToString:@"大数据分析"]){
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=dsjfx",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     }
     
     
