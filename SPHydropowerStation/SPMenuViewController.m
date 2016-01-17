@@ -158,6 +158,8 @@
         url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=zonghezhanshi",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     }else if ([item.title isEqualToString:@"大数据分析"]){
         url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=dsjfx",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
+    }else if ([item.title isEqualToString:@"资源监控"]){
+        url = [NSString stringWithFormat:@"http://120.24.215.190:108/default.aspx?username=%@&projectid=%@&device=pad&menuid=ziyuanjiankong",[SPAPI sharedInstance].currentUser.account,self.proj.ProjID];
     }
     
     
